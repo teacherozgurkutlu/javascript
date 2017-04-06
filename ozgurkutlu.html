@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<html>
+<head>
+<script type="text/javascript">
+	var a="imkb"
+	for (var i = 0; i <= 10; i++) {
+	document.write("Bu yazı javascript tarafından yazdırılmıştır<br>")// açıklama
+
+	}
+
+	function yaz() {
+		document.write("fonksiyonla yazılan yazıdır<br>");
+		//alert("uyarı 1.......");
+		 document.getElementById("demo").innerHTML = "Paragraf değişti!";
+	}
+	yaz();
+	yaz();
+	yaz();
+
+</script>
+</head>
+<body>
+<p>merhaba<br> dünya</p>
+First name: <input type="text" name="isim"><br>
+<div id="div1"></div>
+
+<p id="demo">Bir paragraf</p>
+<form>
+<button type="button" onclick="yaz();return false">Butona Bas!</button>
+<!--<input type="Button" name="Button1" value="Mesaj göster" onclick="yaz();">-->	
+</form>
+ 
+</body>
+
+</html>
