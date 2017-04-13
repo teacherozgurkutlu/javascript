@@ -1,36 +1,41 @@
 <html>
 <head>
 <script type="text/javascript">
-
-//document.writeln('<div id="barýs"></div><br>')
-
+document.writeln("Sayfama HoÅŸgeldiniz")
 </script>
 </head>
 <body>
 
-<div id="ana2">
+<div id="ana">
 
 </div>
 <script type="text/javascript">
-//document.getElementById("ana").i='<button type="button">Fdfgdfg!</button>'
-var ana=document.createElement('<div id="umut"></div>');
-var yenidiv=document.createElement("div");
-ana.setAttribute("id","ana");
+var anadiv=document.getElementById("ana");
+var childdiv=document.createElement("div");
+var b = document.createElement("button");
+var buttons = ["button1","button2","button3"]
+anadiv.appendChild(childdiv);
+anadiv.appendChild(b);
+b.innerHTML="dÃ¼ÄŸme1";
+buttons.forEach(function(but)
+{
+	var butdiv=document.createElement("button");
+	butdiv.innerHTML=but;
+	anadiv.appendChild(butdiv);
+	butdiv.setAttribute("id",but);
+});
+childdiv.innerHTML="child div iÃ§eriÄŸi";
+
 for (var i = 1; i <= 11; i++) {
-	//document.writeln('<div><button type="button" onclick="yaz'+i+'()">Click Me!</button></div><br>')// açýklama
+	document.writeln('<div><button type="button" onclick="yaz'+i+'()">Click Me!</button></div><br>')// ifadede Ã§ift tÄ±rnak varsa en dÄ±ÅŸta tek tÄ±rnak olmalÄ±
 	}
-//var b = document.createElement('button');
-document.getElementById("barýs").appendChild(yenidiv);
 
-var kon= document.getElementById("ana");
-kon.innerHTML="yyyyyyy";
+
 function yaz1(){
-
-	alert("yazý 1");
+	alert("yazi 1");
 }
 function yaz2(){
-
-	alert("yazý 2");
+	alert("yazi 2");
 }
 </script>
 </body>
