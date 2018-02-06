@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script>
+var cocuk,yil,maas;
+yil=prompt("Çalışma sürenizi giriniz:");
+cocuk=prompt("Çocuk sayısını giriniz:");
+if(cocuk<=3)
+{
+	if(yil<3){
+		
+		maas=2000+(cocuk*200)+400;
+		document.write("maaşınız:"+maas);
+		}
+		if(yil>=3&&yil<5){
+		
+		maas=2000+(cocuk*200)+600;
+		document.write("maaşınız:"+maas);
+		}
+		
+		if(yil>=5&&yil<10){
+		
+		maas=2000+(cocuk*200)+1000;
+		document.write("maaşınız:"+maas);
+		}
+		else{
+		
+		maas=2000+(cocuk*200)+1500;
+		document.write("maaşınız:"+maas);
+		}
+		
+}
+	else if(cocuk>3){
+		if(yil<3){
+		
+		maas=2000+800+400;
+		document.write("maaşınız:"+maas);
+		}
+		if(yil>=3&&yil<5){
+		
+		maas=2000+800+600;
+		document.write("maaşınız:"+maas);
+		}
+		
+		if(yil>=5&&yil<10){
+		
+		maas=2000+800+1000;
+		document.write("maaşınız:"+maas);
+		}
+		else{
+		
+		maas=2000+800+1500;
+		document.write("maaşınız:"+maas);
+		}
+		
+		
+		
+		
+		}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

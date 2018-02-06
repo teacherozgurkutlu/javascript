@@ -1,0 +1,4 @@
+C:\Users\masa 2\Desktop\javascript\js\js\bin\js.dll
+C:\Users\masa 2\Desktop\javascript\js\js\bin\js.pdb
+C:\Users\masa 2\Desktop\javascript\js\js\obj\Debug\js.dll
+C:\Users\masa 2\Desktop\javascript\js\js\obj\Debug\js.pdb
