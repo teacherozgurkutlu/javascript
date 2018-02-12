@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<script language="javascript" type="text/javascript">
+var yazi="hhhhh aaaaa \n bbbbbbb ccccccccccc"; // \n burada işe yaramaz fax makinelerinde çalışır
+document.write(yazi);	
+</script>
+</head>
+
+
+<body>
+<p id="demo"></p> 
+	
+
+
+<button onclick="myFunction()">Button</button>
+<input type="button" value="Input Button" onclick="myFunction()">
+<label for="male" id="lb">Male</label>
+<input type="text" id="myText" value="Mickey">
+
+<h2>My First JavaScript</h2>
+
+<script type="text/javascript">
+	function myFunction() {
+    document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML+"Hello World";
+    document.getElementById("lb").innerHTML="label"
+    document.getElementById("myText").value = "Johnny Bravo";
+}
+
+	
+</script>
+
+
+
+</body>
+</html> 
