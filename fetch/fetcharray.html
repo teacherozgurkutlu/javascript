@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+
+<body>
+  
+  <script>
+    console.log('fetch işlemi çalışmak üzere');
+    const filenames = [
+        'images/cat.jpg',
+        'images/eyfel.jpg'
+      ];
+    resimgetir(filenames)
+    .then(response=>{           //Mecburi değil bilgi vermek için yazıldı
+        console.log('Resimler Getirildi');
+    })
+    .catch(error=>{             //Hatanın Ne olduğunu bulmak için yazıldı
+      console.log('Hata oluştu');
+      console.error(error);
+    });
+    
+    async function resimgetir(filenames){
+      for (let filename of filenames){
+        const response=await fetch(filename);
+        const blob=await response.blob();
+        const img=document.createElement('img');
+        img.src=URL.createObjectURL(blob);
+        img.width=200;
+        document.body.append(img);
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

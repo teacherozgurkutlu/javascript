@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+
+<body>
+  <p  id="poem"  >
+  <script>
+    console.log('Text fetch işlemi çalışmak üzere');
+    yazıgetir()
+    .then(response=>{           //Mecburi değil bilgi vermek için yazıldı
+        console.log('Şiir Getirildi');
+        // document.getElementById('poem').innerText=response;
+    })
+    .catch(error=>{             //Hatanın Ne olduğunu bulmak için yazıldı
+      console.log('Hata oluştu');
+      console.error(error);
+    });
+    
+    async function yazıgetir(){
+        const response=await fetch('poem.txt');
+        const text=await response.text();
+        document.getElementById('poem').innerText=text;// yada return await response.text(); 
+                                                        //diyerek foksiyon dışında yazma işi yapılabilirdi
+    }
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+
+<body>
+  <img src="" id="eyfel" width="200" >
+  <script>
+    console.log('fetch işlemi çalışmak üzere');
+    resimgetir()
+    .then(response=>{           //Mecburi değil bilgi vermek için yazıldı
+        console.log('Resim Getirildi');
+    })
+    .catch(error=>{             //Hatanın Ne olduğunu bulmak için yazıldı
+      console.log('Hata oluştu');
+      console.error(error);
+    });
+    
+    async function resimgetir(){
+        const response=await fetch('images/eyfel.jpg');
+        const blob=await response.blob();
+        document.getElementById('eyfel').src=URL.createObjectURL(blob);
+    }
+
+    
+  </script>
+</body>
+</html>
