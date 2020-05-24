@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+<script>
+  
+</script>
+
+</head>
+
+<body>
+  <canvas id='chart' width="800" height="400"></canvas>
+  <script>
+
+    console.log('Data fetch  ve grafik çizme işlemi çalışmak üzere');
+    //window.addEventListener('load', setup3);
+    //setup3();
+    async function setup3 () {  //fonksiyonun ismi setup olunca otomatikman tetikleniyor
+        const ctx = document.getElementById('chart').getContext('2d');
+        console.log('Data isteniyor');
+        const globalTemps = await dataal();
+        const myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: globalTemps.years,
+            datasets: [
+              {
+                label: 'Temperature in °C',
+                data: globalTemps.temps,
+                fill: false,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {}
+        });
+      }
+
+    
+    //dataal();
+    
+    async function dataal (){
+      //const response=await fetch('/data/testdata.csv');
+      const response = await fetch('/data/ZonAnn.Ts+dSST.csv');
+      const data=await response.text();
+      const rows=data.split('\n').slice(1);
+      const years = [];
+      const temps = [];
+      rows.forEach(row => {
+          const cols = row.split(',');
+          years.push(cols[0]);
+          temps.push(14 + parseFloat(cols[1]));
+        });
+        //console.log(years);
+        //console.log(temps);
+        console.log('Data gönderiliyor');
+        return {years,temps}
+    }
+    
+
+    
+  </script>
+</body>
+</html>
