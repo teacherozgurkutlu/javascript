@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+<body>
+ <h1>ISS Uluslararası Uzay İstasyonu Nerede?</h1>
+ <p>
+  latitude: <span id="lat"></span>°<br />
+  longitude: <span id="lon"></span>°
+</p>
+<script>
+ 
+ 
+async function setup() {
+const kordinat =await issget();
+console.log(kordinat);
+console.log('latitude:'+kordinat.latitude);
+console.log('longitude:'+kordinat.longitude);
+document.getElementById('lat').innerText=kordinat.latitude;
+//document.getElementById('lat').textContent=kordinat.latitude;   //üst satırla aynı işi yapıyor
+document.getElementById('lon').innerText=kordinat.longitude;
+}  
+const api_url='https://api.wheretheiss.at/v1/satellites/25544';
+async function issget(){
+      const response=await fetch(api_url);
+      const data=await response.json();
+      //const latitude=data.latitude;
+      //const longitude=data.longitude;
+      const {latitude,longitude}=data;  //üsteki iki satır yerine kullanılabilir
+      //console.log(latitude);
+      //console.log(longitude);
+    
+      return {latitude,longitude};
+      
+    }
+    setInterval(setup, 5000);
+  </script>
+</body>
+</html>
