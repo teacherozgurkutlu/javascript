@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+  
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+
+<body>
+  
+  <script>
+    if('geolocation' in navigator) {
+  console.log('Konum hizmeti çalışıyor');
+  navigator.geolocation.getCurrentPosition(async position => {
+console.log(position.coords.latitude);
+console.log(position.coords.longitude);
+const lat=position.coords.latitude;
+const lon=position.coords.longitude;
+const data={lat,lon};
+const options={
+  method:'POST',
+  headers: {
+      'Content-Type': 'application/json'
+      
+    },
+    body: JSON.stringify(data)
+};
+const response= await fetch('/api',options); //Bilgi gönderiliyor ve gelen cevap alınıyor ekranda yazdırılıyor
+const cevap= await response.json();
+  console.log(cevap);
+  
+});
+} else {
+  /* Konum hizmeti kullanılamaz */
+}
+  </script>
+</body>
+</html>
